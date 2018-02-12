@@ -45,10 +45,6 @@
     background: black;
   }
 
-  #ytplayer {
-    width: $max_width;
-    height: $max_height;
-  }
 
   .panel-heading {
     padding: 5px 8px;
@@ -77,8 +73,17 @@
   }
 
 
-  #display {
-    height: $max_height - 2 * $twitch_margin;
+  #display .panel-body {
+    height: $max_height - 5 * $twitch_margin;
+    position: relative;
+
+    #ytplayer {
+      width: 98%;
+      height: 98%;
+      position: absolute;
+      top: 1%;
+      left: 1%;
+    }
   }
 
   .panel {

@@ -8384,11 +8384,6 @@ button.close {
   background: black;
 }
 
-.twitch #ytplayer {
-  width: 1920px;
-  height: 1080px;
-}
-
 .twitch .panel-heading {
   padding: 5px 8px;
   font-weight: bold;
@@ -8418,7 +8413,16 @@ button.close {
   border: 0;
 }
 
-.twitch #display {
-  height: 1050px;
+.twitch #display .panel-body {
+  height: 1005px;
+  position: relative;
+}
+
+.twitch #display .panel-body #ytplayer {
+  width: 98%;
+  height: 98%;
+  position: absolute;
+  top: 1%;
+  left: 1%;
 }
 

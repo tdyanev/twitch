@@ -1,18 +1,18 @@
 <template>
 <div class="twitch">
-  <div class="break"
-  v-if="live.youtubeRunning">
-  <panel :title="live.messageTitle">
-    {{ live.messageBreak }}
-  </panel>
-  <iframe id="ytplayer" type="text/html"
-  :src="youtubeSrc"
-  frameborder="0" allowfullscreen></iframe>
-  </div>
-  <div class="container-fluid main" v-else>
+  <div class="container-fluid main">
     <div class="row">
       <div class="col-xs-9">
-        <panel :title="live.messageTitle" id="display">
+        <panel v-if="live.youtubeRunning"
+          id="display"
+          :title="live.messageBreak">
+          <div class="video-wrapper">
+          <iframe id="ytplayer" type="text/html"
+          :src="youtubeSrc"
+          frameborder="0"></iframe>
+          </div>
+        </panel>
+        <panel :title="live.messageTitle" id="display" v-else>
         </panel>
       </div>
 
@@ -24,9 +24,6 @@
           <img :src="live.cameraImageURL" v-if="live.cameraImageURL" />
           </panel>
 
-        <panel title="баланс за деня" v-if="live.invested">
-          <list :items="balance"></list>
-        </panel>
         <panel :title="labels.info">
           <list :items="info"></list>
         </panel>
@@ -149,7 +146,8 @@ export default {
 
     youtubeSrc() {
       return `https://www.youtube.com/embed/${
-        this.live.youtubeURL}?autoplay=1&controls=0&output=embed`;
+        this.live.youtubeURL}?start=${
+        this.live.youtubeStart}&autoplay=1&controls=0&output=embed`;
     },
   },
 }

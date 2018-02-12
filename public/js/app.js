@@ -43241,9 +43241,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
 
 
 
@@ -43337,7 +43334,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return _ref = {}, _defineProperty(_ref, this.labels.delay, this.live.delay), _defineProperty(_ref, this.labels.live, this.formatMinutes(this.duration)), _defineProperty(_ref, this.labels.localTime, this.localTime), _ref;
     },
     youtubeSrc: function youtubeSrc() {
-      return 'https://www.youtube.com/embed/' + this.live.youtubeURL + '?autoplay=1&controls=0&output=embed';
+      return 'https://www.youtube.com/embed/' + this.live.youtubeURL + '?start=' + this.live.youtubeStart + '&autoplay=1&controls=0&output=embed';
     }
   }
 });
@@ -47745,93 +47742,78 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "twitch" }, [
-    _vm.live.youtubeRunning
-      ? _c(
+    _c("div", { staticClass: "container-fluid main" }, [
+      _c("div", { staticClass: "row" }, [
+        _c(
           "div",
-          { staticClass: "break" },
+          { staticClass: "col-xs-9" },
           [
-            _c("panel", { attrs: { title: _vm.live.messageTitle } }, [
-              _vm._v("\n    " + _vm._s(_vm.live.messageBreak) + "\n  ")
-            ]),
-            _vm._v(" "),
-            _c("iframe", {
-              attrs: {
-                id: "ytplayer",
-                type: "text/html",
-                src: _vm.youtubeSrc,
-                frameborder: "0",
-                allowfullscreen: ""
-              }
-            })
-          ],
-          1
-        )
-      : _c("div", { staticClass: "container-fluid main" }, [
-          _c("div", { staticClass: "row" }, [
-            _c(
-              "div",
-              { staticClass: "col-xs-9" },
-              [
-                _c("panel", {
+            _vm.live.youtubeRunning
+              ? _c(
+                  "panel",
+                  { attrs: { id: "display", title: _vm.live.messageBreak } },
+                  [
+                    _c("div", { staticClass: "video-wrapper" }, [
+                      _c("iframe", {
+                        attrs: {
+                          id: "ytplayer",
+                          type: "text/html",
+                          src: _vm.youtubeSrc,
+                          frameborder: "0"
+                        }
+                      })
+                    ])
+                  ]
+                )
+              : _c("panel", {
                   attrs: { title: _vm.live.messageTitle, id: "display" }
                 })
-              ],
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "col-xs-3 sidebar" },
+          [
+            _vm.live.cameraHeight
+              ? _c(
+                  "panel",
+                  {
+                    style: { height: _vm.live.cameraHeight },
+                    attrs: { title: _vm.live.cameraText, id: "camera" }
+                  },
+                  [
+                    _vm.live.cameraImageURL
+                      ? _c("img", { attrs: { src: _vm.live.cameraImageURL } })
+                      : _vm._e()
+                  ]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _c(
+              "panel",
+              { attrs: { title: _vm.labels.info } },
+              [_c("list", { attrs: { items: _vm.info } })],
               1
             ),
             _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "col-xs-3 sidebar" },
-              [
-                _vm.live.cameraHeight
-                  ? _c(
-                      "panel",
-                      {
-                        style: { height: _vm.live.cameraHeight },
-                        attrs: { title: _vm.live.cameraText, id: "camera" }
-                      },
-                      [
-                        _vm.live.cameraImageURL
-                          ? _c("img", {
-                              attrs: { src: _vm.live.cameraImageURL }
-                            })
-                          : _vm._e()
-                      ]
-                    )
-                  : _vm._e(),
-                _vm._v(" "),
-                _vm.live.invested
-                  ? _c(
-                      "panel",
-                      { attrs: { title: "баланс за деня" } },
-                      [_c("list", { attrs: { items: _vm.balance } })],
-                      1
-                    )
-                  : _vm._e(),
-                _vm._v(" "),
-                _c(
-                  "panel",
-                  { attrs: { title: _vm.labels.info } },
-                  [_c("list", { attrs: { items: _vm.info } })],
-                  1
-                ),
-                _vm._v(" "),
-                _c("panel", { attrs: { title: _vm.labels.chat } }, [
-                  _vm.live.chatHeight
-                    ? _c("iframe", {
-                        attrs: {
-                          src: _vm.live.chatURL,
-                          width: "100%",
-                          height: _vm.live.chatHeight
-                        }
-                      })
-                    : _vm._e()
-                ])
-              ],
-              1
-            )
-          ])
-        ])
+            _c("panel", { attrs: { title: _vm.labels.chat } }, [
+              _vm.live.chatHeight
+                ? _c("iframe", {
+                    attrs: {
+                      src: _vm.live.chatURL,
+                      width: "100%",
+                      height: _vm.live.chatHeight
+                    }
+                  })
+                : _vm._e()
+            ])
+          ],
+          1
+        )
+      ])
+    ])
   ])
 }
 var staticRenderFns = []

@@ -15,11 +15,14 @@
 </head>
 <body>
   <div id="app">
+
     <twitch :items="{{ json_encode($items) }}"
       :labels="{{ json_encode($labels) }}"
       :banners="{{ json_encode($banners) }}"
       >
+
     </twitch>
+
   </div>
 
   <!-- Scripts -->

@@ -138,7 +138,7 @@ export default {
 
     info() {
       return {
-        [this.labels.delay] : this.live.delay,
+        [this.labels.delay] : this.live.streamDelay,
         [this.labels.live] : this.formatMinutes(this.duration),
         [this.labels.localTime] : this.localTime,
       };

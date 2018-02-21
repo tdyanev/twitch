@@ -15,7 +15,7 @@
 
         {{ csrf_field() }}
         <form-groups :items="{{ json_encode($items) }}"
-          :groups="['camera', 'message', 'chat', 'youtube']">
+          :groups="['camera', 'message', 'chat', 'youtube', 'stream']">
         </form-groups>
 
       </div>

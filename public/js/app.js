@@ -43331,7 +43331,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     info: function info() {
       var _ref;
 
-      return _ref = {}, _defineProperty(_ref, this.labels.delay, this.live.delay), _defineProperty(_ref, this.labels.live, this.formatMinutes(this.duration)), _defineProperty(_ref, this.labels.localTime, this.localTime), _ref;
+      return _ref = {}, _defineProperty(_ref, this.labels.delay, this.live.streamDelay), _defineProperty(_ref, this.labels.live, this.formatMinutes(this.duration)), _defineProperty(_ref, this.labels.localTime, this.localTime), _ref;
     },
     youtubeSrc: function youtubeSrc() {
       return 'https://www.youtube.com/embed/' + this.live.youtubeURL + '?start=' + this.live.youtubeStart + '&autoplay=1&controls=0&output=embed';

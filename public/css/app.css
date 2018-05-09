@@ -8362,7 +8362,7 @@ button.close {
 .twitch {
   width: 1920px;
   height: 1080px;
-  background-image: url("/storage/img/nova-on.jpg");
+  background-image: url("/img/nova-on.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   text-transform: uppercase;

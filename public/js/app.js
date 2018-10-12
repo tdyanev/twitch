@@ -43316,7 +43316,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       return v < 10 ? '0' + v : v;
     },
     getLocalTime: function getLocalTime() {
-      return new Date().toTimeString().substr(0, 5);
+      var date = new Date();
+
+      return date.toLocaleDateString() + '\n        ' + date.toTimeString().substr(0, 5);
     }
   },
 

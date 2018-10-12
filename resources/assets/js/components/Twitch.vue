@@ -123,7 +123,10 @@ export default {
     },
 
     getLocalTime() {
-      return new Date().toTimeString().substr(0, 5);
+      var date = new Date();
+
+      return `${date.toLocaleDateString()}
+        ${date.toTimeString().substr(0, 5)}`;
     },
   },
 

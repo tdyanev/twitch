@@ -72,17 +72,22 @@
     }
   }
 
+  #display {
 
-  #display .panel-body {
-    height: $max_height - 5 * $twitch_margin;
-    position: relative;
+    text-transform: initial;
 
-    #ytplayer {
-      width: 98%;
-      height: 98%;
-      position: absolute;
-      top: 1%;
-      left: 1%;
+    .panel-body {
+      height: $max_height - 5 * $twitch_margin;
+      position: relative;
+
+
+      #ytplayer {
+        width: 98%;
+        height: 98%;
+        position: absolute;
+        top: 1%;
+        left: 1%;
+      }
     }
   }
 

@@ -8413,6 +8413,10 @@ button.close {
   border: 0;
 }
 
+.twitch #display {
+  text-transform: initial;
+}
+
 .twitch #display .panel-body {
   height: 1005px;
   position: relative;
